@@ -1,0 +1,35 @@
+:root {
+	--clr-blue-900: #3b4262;
+	--clr-blue-600: #2a45c2;
+	--clr-blue-500: #4664f4;
+	--clr-blue-200: #babfd4;
+	--clr-cyan-500: #2d8dab;
+	--clr-cyan-300: #3fb7cd;
+	--clr-purple-700: #5f37a8;
+	--clr-purple-500: #834ee3;
+	--clr-white-100: #ffffff;
+    --clr-white-300: #F3F3F3;
+	--clr-white-200: #ffffff47;
+	--clr-black-900: #000000;
+	--clr-gray-700: #565468;
+	--clr-red-700: #9d1634;
+	--clr-red-500: #db2e4d;
+	--clr-orange-700: #c76c1b;
+	--clr-yellow-500: #eb9f0e;
+
+	--clr-gradient-primary: linear-gradient(to bottom, #1f3757, #131537);
+
+    --fz-10: 0.625rem;
+    --fz-11: 0.675rem;
+    --fz-12: 0.75rem;
+    --fz-14: 0.875rem;
+	--fz-16: 1rem;
+	--fz-18: 1.125rem;
+	--fz-20: 1.25rem;
+	--fz-24: 1.5rem;
+	--fz-32: 2rem;
+	--fz-40: 2.5rem;
+	--fz-48: 3rem;
+	--fz-64: 4rem;
+	--ff-default: 'Barlow Semi Condensed', sans-serif;
+}

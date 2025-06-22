@@ -1,0 +1,34 @@
+.scoreboard {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border: 3px solid var(--clr-white-200);
+	border-radius: 8px;
+}
+.scoreboard img {
+	margin: var(--fz-24);
+	width: 50px;
+	height: 50px;
+}
+.scoreboard div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: var(--fz-12);
+	width: 80px;
+	height: 75px;
+	background-color: var(--clr-white-300);
+	border-radius: 3px;
+	line-height: 30px;
+	font-weight: 700;
+}
+.scoreboard div p {
+	font-size: var(--fz-11);
+	color: var(--clr-blue-600);
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+.scoreboard div span {
+	font-size: var(--fz-40);
+	color: var(--clr-gray-700);
+}

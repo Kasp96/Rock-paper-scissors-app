@@ -1,0 +1,9 @@
+.layout {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-image: var(--clr-gradient-primary);
+	width: 100%;
+	min-height: 100vh;
+	padding: var(--fz-32);
+}
