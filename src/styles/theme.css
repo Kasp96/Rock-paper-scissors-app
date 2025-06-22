@@ -8,7 +8,7 @@
 	--clr-purple-700: #5f37a8;
 	--clr-purple-500: #834ee3;
 	--clr-white-100: #ffffff;
-    --clr-white-300: #F3F3F3;
+	--clr-white-300: #f3f3f3;
 	--clr-white-200: #ffffff47;
 	--clr-black-900: #000000;
 	--clr-gray-700: #565468;
@@ -16,13 +16,15 @@
 	--clr-red-500: #db2e4d;
 	--clr-orange-700: #c76c1b;
 	--clr-yellow-500: #eb9f0e;
+	--clr-empty-choice: hsl(0, 0%, 0%, 10%);
 
 	--clr-gradient-primary: linear-gradient(to bottom, #1f3757, #131537);
 
-    --fz-10: 0.625rem;
-    --fz-11: 0.675rem;
-    --fz-12: 0.75rem;
-    --fz-14: 0.875rem;
+	--fz-10: 0.625rem;
+	--fz-11: 0.675rem;
+	--fz-12: 0.75rem;
+	--fz-14: 0.875rem;
+	--fz-15: 0.925rem;
 	--fz-16: 1rem;
 	--fz-18: 1.125rem;
 	--fz-20: 1.25rem;

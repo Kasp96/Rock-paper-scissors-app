@@ -1,0 +1,36 @@
+.firstStep {
+	display: flex;
+	justify-content: space-between;
+}
+.firstStep > div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.firstStep h2 {
+	margin-top: 1rem;
+	font-size: var(--fz-15);
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 1.8px;
+	color: var(--clr-white-100);
+}
+
+.firstStep img {
+	width: 130px;
+	height: 130px;
+	border-radius: 50%;
+	padding: 1.5rem;
+	border: 15px solid var(--clr-orange-700);
+	background-color: var(--clr-white-100);
+}
+.emptyChoice {
+	display: flex;
+	justify-content: space-between;
+	width: 110px;
+	height: 110px;
+	background-color: var(--clr-empty-choice);
+	border-radius: 50%;
+	border: 15px solid transparent;
+	margin-bottom: auto;
+}

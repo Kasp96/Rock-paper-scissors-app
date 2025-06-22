@@ -9,13 +9,14 @@ import { Choice } from '../Choice/Choice';
 
 const icons = [PAPER_ICON, ROCK_ICON, SCISSORS_ICON, SPOCK_ICON, LIZARD_ICON];
 
-export const ChoicesContainer = () => {
+export const ChoicesContainer = ({ started }) => {
 	return (
 		<div className={styles.choicesContainer}>
 			<img src={CHOICES_BG} />
 			{icons.map((icon, index) => {
 				return (
 					<Choice
+						started={started}
 						className={`${styles.choice} ${styles[`choice-${index}`]}`}
 						key={index}
 						img={icon}
