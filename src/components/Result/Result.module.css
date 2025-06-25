@@ -1,0 +1,23 @@
+.result {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* gap: 1rem; */
+	gap: 0.5rem;
+	text-transform: uppercase;
+}
+.result h2 {
+	font-size: var(--fz-56);
+	color: var(--clr-white-100);
+	font-weight: 700;
+}
+.result button {
+	padding-block: var(--fz-15);
+	width: 220px;
+	letter-spacing: 2.5px;
+	background-color: var(--clr-white-300);
+	color: var(--clr-blue-900);
+	font-weight: 700;
+	border-radius: 6px;
+	text-transform: uppercase;
+}

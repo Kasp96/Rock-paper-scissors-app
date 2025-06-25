@@ -17,12 +17,21 @@
 }
 
 .img {
+<<<<<<< HEAD
   width: 130px;
   height: 130px;
   border-radius: 50%;
   padding: 1.5rem;
   border: 15px solid var(--clr-orange-700);
   background-color: var(--clr-white-100);
+=======
+	width: 130px;
+	height: 130px;
+	border-radius: 50%;
+	padding: 1.5rem;
+	border: 15px solid var(--clr-orange-700);
+	background-color: var(--clr-white-100);
+>>>>>>> dd49e8eac1318ff337b737d5ae79ea66ef6dbbe9
 }
 
 .emptyChoice {
@@ -34,6 +43,21 @@
   border-radius: 50%;
   border: 15px solid transparent;
   margin-bottom: auto;
+}
+.border_0 {
+	border: 15px solid var(--clr-blue-500);
+}
+.border_1 {
+	border: 15px solid var(--clr-red-500);
+}
+.border_2 {
+	border: 15px solid var(--clr-yellow-500);
+}
+.border_3 {
+	border: 15px solid var(--clr-cyan-300);
+}
+.border_4 {
+	border: 15px solid var(--clr-purple-500);
 }
 .border_0 {
 	border: 15px solid var(--clr-blue-500);
