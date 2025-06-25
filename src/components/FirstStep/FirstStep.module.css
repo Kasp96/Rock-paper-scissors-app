@@ -16,7 +16,7 @@
 	color: var(--clr-white-100);
 }
 
-.firstStep img {
+.img {
 	width: 130px;
 	height: 130px;
 	border-radius: 50%;
@@ -33,4 +33,19 @@
 	border-radius: 50%;
 	border: 15px solid transparent;
 	margin-bottom: auto;
+}
+.border_0 {
+	border: 15px solid var(--clr-blue-500);
+}
+.border_1 {
+	border: 15px solid var(--clr-red-500);
+}
+.border_2 {
+	border: 15px solid var(--clr-yellow-500);
+}
+.border_3 {
+	border: 15px solid var(--clr-cyan-300);
+}
+.border_4 {
+	border: 15px solid var(--clr-purple-500);
 }

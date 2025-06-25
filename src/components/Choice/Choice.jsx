@@ -1,5 +1,10 @@
-export const Choice = ({ img, className, started }) => {
+export const Choice = ({ img, className, handleOnChoiceButtonClick }) => {
 	return (
-		<img onClick={started} className={className} src={img} alt='Choice Icon' />
+		<img
+			onClick={handleOnChoiceButtonClick}
+			className={className}
+			src={img}
+			alt='Choice Icon'
+		/>
 	);
 };
