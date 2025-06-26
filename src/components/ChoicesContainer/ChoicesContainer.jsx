@@ -13,7 +13,7 @@ export const ChoicesContainer = ({ handleOnChoiceButtonClick, icons }) => {
 						handleOnChoiceButtonClick={() => handleOnChoiceButtonClick(index)}
 						className={`${styles.choice} ${styles[`choice-${index}`]}`}
 						key={index}
-						img={icon}
+						img={icon.img}
 					/>
 				);
 			})}
