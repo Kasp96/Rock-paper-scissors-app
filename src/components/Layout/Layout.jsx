@@ -1,44 +1,45 @@
-import { useState } from 'react';
-import styles from '../Layout/Layout.module.css';
-import { RulesButton } from '../RulesButton/RulesButton';
-import { Scoreboard } from '../Scoreboard/Scoreboard';
-import { MainContent } from '../MainContent/MainContent';
-import { ChoicesContainer } from '../ChoicesContainer/ChoicesContainer';
-import { FirstStep } from '../FirstStep/FirstStep';
-// import PAPER_ICON from '../../assets/icon-paper.svg';
-// import ROCK_ICON from '../../assets/icon-rock.svg';
-// import SCISSORS_ICON from '../../assets/icon-scissors.svg';
-// import SPOCK_ICON from '../../assets/icon-spock.svg';
-// import LIZARD_ICON from '../../assets/icon-lizard.svg';
-import { icons } from '../../utils/iconsList';
+import { useState } from "react";
+import styles from "../Layout/Layout.module.css";
+import { RulesButton } from "../RulesButton/RulesButton";
+import { Scoreboard } from "../Scoreboard/Scoreboard";
+import { MainContent } from "../MainContent/MainContent";
+import { ChoicesContainer } from "../ChoicesContainer/ChoicesContainer";
+import { FirstStep } from "../FirstStep/FirstStep";
+import { icons } from "../../utils/iconsList";
 
 export const Layout = ({ showRules }) => {
-	const [isGameStarted, setIsGameStarted] = useState(true);
-	const [selectedIndex, setSelectedIndex] = useState(null);
+  localStorage.setItem("score", Number(localStorage.getItem("score")) || 0);
+  const [isGameStarted, setIsGameStarted] = useState(true);
+  const [selectedIndex, setSelectedIndex] = useState(null);
+  const [score, setScore] = useState(localStorage.score);
 
-	// const icons = [PAPER_ICON, ROCK_ICON, SCISSORS_ICON, SPOCK_ICON, LIZARD_ICON];
+  const handleOnChoiceButtonClick = (index) => {
+    setIsGameStarted(false);
+    setSelectedIndex(index);
+  };
 
-	const handleOnChoiceButtonClick = (index) => {
-		setIsGameStarted(false);
-		setSelectedIndex(index);
-	};
+  console.log(localStorage.getItem("score") || 0);
 
-	return (
-		<>
-			<div className={styles.layout}>
-				<Scoreboard />
-				<MainContent>
-					{isGameStarted ? (
-						<ChoicesContainer
-							icons={icons}
-							handleOnChoiceButtonClick={handleOnChoiceButtonClick}
-						/>
-					) : (
-						<FirstStep index={selectedIndex} icons={icons} />
-					)}
-				</MainContent>
-				<RulesButton showRules={showRules} />
-			</div>
-		</>
-	);
+  return (
+    <>
+      <div className={styles.layout}>
+        <Scoreboard score={score} />
+        <MainContent>
+          {isGameStarted ? (
+            <ChoicesContainer
+              icons={icons}
+              handleOnChoiceButtonClick={handleOnChoiceButtonClick}
+            />
+          ) : (
+            <FirstStep
+              setScore={setScore}
+              index={selectedIndex}
+              icons={icons}
+            />
+          )}
+        </MainContent>
+        <RulesButton showRules={showRules} />
+      </div>
+    </>
+  );
 };
