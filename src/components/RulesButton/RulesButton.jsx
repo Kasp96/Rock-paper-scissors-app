@@ -1,8 +1,8 @@
 import styles from './RulesButton.module.css';
 
-export const RulesButton = ({ showRules }) => {
+export const RulesButton = ({ areRulesShown }) => {
 	return (
-		<button onClick={showRules} className={styles.button}>
+		<button onClick={areRulesShown} className={styles.button}>
 			Rules
 		</button>
 	);

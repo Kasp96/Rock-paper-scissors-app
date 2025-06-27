@@ -6,40 +6,49 @@ import { MainContent } from "../MainContent/MainContent";
 import { ChoicesContainer } from "../ChoicesContainer/ChoicesContainer";
 import { FirstStep } from "../FirstStep/FirstStep";
 import { icons } from "../../utils/iconsList";
+import { RulesLayout } from "../RulesLayout/RulesLayout";
 
-export const Layout = ({ showRules }) => {
+export const Layout = () => {
   localStorage.setItem("score", Number(localStorage.getItem("score")) || 0);
   const [isGameStarted, setIsGameStarted] = useState(true);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [score, setScore] = useState(localStorage.score);
+  const [areRulesShown, setAreRulesShown] = useState(true);
 
   const handleOnChoiceButtonClick = (index) => {
     setIsGameStarted(false);
     setSelectedIndex(index);
   };
 
-  console.log(localStorage.getItem("score") || 0);
+  const handleRulesButtonClick = () => {
+    setAreRulesShown((prevRules) => !prevRules);
+  };
 
   return (
     <>
-      <div className={styles.layout}>
-        <Scoreboard score={score} />
-        <MainContent>
-          {isGameStarted ? (
-            <ChoicesContainer
-              icons={icons}
-              handleOnChoiceButtonClick={handleOnChoiceButtonClick}
-            />
-          ) : (
-            <FirstStep
-              setScore={setScore}
-              index={selectedIndex}
-              icons={icons}
-            />
-          )}
-        </MainContent>
-        <RulesButton showRules={showRules} />
-      </div>
+      {areRulesShown ? (
+        <div className={styles.layout}>
+          <Scoreboard score={score} />
+          <MainContent>
+            {isGameStarted ? (
+              <ChoicesContainer
+                icons={icons}
+                handleOnChoiceButtonClick={handleOnChoiceButtonClick}
+              />
+            ) : (
+              <FirstStep
+                setScore={setScore}
+                index={selectedIndex}
+                icons={icons}
+                setIsGameStarted={setIsGameStarted}
+              />
+            )}
+          </MainContent>
+          <RulesButton areRulesShown={handleRulesButtonClick} />
+        </div>
+      ) : (
+        <RulesLayout areRulesShown={handleRulesButtonClick} />
+      )}
     </>
   );
 };

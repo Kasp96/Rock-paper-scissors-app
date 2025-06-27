@@ -4,7 +4,7 @@ import { Result } from "../Result/Result";
 import { rules } from "../../utils/rules";
 
 const housePick = Math.floor(Math.random() * 5);
-export const FirstStep = ({ icons, index, setScore }) => {
+export const FirstStep = ({ icons, index, setScore, setIsGameStarted }) => {
   const [resultInfo, setResultInfo] = useState("");
 
   const playerChoice = icons[index].name;
@@ -33,9 +33,9 @@ export const FirstStep = ({ icons, index, setScore }) => {
   return (
     <>
       <div className={styles.firstStep}>
-        <div>
+        <div className={`${styles.highlighted}`}>
           <img
-            className={`${styles.img} ${styles[`border_${index}`]}`}
+            className={`${styles.img} ${styles[`border_${index}`]} `}
             src={icons[index].img}
             alt=""
           />
@@ -51,7 +51,7 @@ export const FirstStep = ({ icons, index, setScore }) => {
           <h2>The house picked</h2>
         </div>
       </div>
-      <Result result={resultInfo} />
+      <Result result={resultInfo} setIsGameStarted={setIsGameStarted} />
     </>
   );
 };
