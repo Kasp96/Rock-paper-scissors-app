@@ -11,3 +11,11 @@
 	border: 1px solid var(--clr-white-200);
 	border-radius: 8px;
 }
+
+@media (min-width: 768px) {
+	.button {
+		position: absolute;
+		bottom: 0rem;
+		right: 2rem;
+	}
+}

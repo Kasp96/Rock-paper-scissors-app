@@ -19,7 +19,7 @@
 	--clr-empty-choice: hsl(0, 0%, 0%, 10%);
 
 	--clr-gradient-primary: linear-gradient(to bottom, #1f3757, #131537);
-
+	--fz-8: 0.5rem;
 	--fz-10: 0.625rem;
 	--fz-11: 0.675rem;
 	--fz-12: 0.75rem;
@@ -31,8 +31,14 @@
 	--fz-24: 1.5rem;
 	--fz-32: 2rem;
 	--fz-40: 2.5rem;
+	--fz-42: 2.75rem;
+	--fz-44: 2.875rem;
+	--fz-46: 2.925rem;
 	--fz-48: 3rem;
 	--fz-56: 3.5rem;
+	--fz-58: 3.75rem;
+	--fz-60: 3.825rem;
+	--fz-62: 3.925rem;
 	--fz-64: 4rem;
 	--ff-default: 'Barlow Semi Condensed', sans-serif;
 }

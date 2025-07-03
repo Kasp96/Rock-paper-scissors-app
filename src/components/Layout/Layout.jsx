@@ -12,7 +12,7 @@ export const Layout = () => {
 	const [isGameStarted, setIsGameStarted] = useState(true);
 	const [selectedIndex, setSelectedIndex] = useState(null);
 	const [score, setScore] = useState(localStorage.score);
-	const [areRulesShown, setAreRulesShown] = useState(true);
+	const [areRulesShown, setAreRulesShown] = useState(false);
 	const [housePick, setHousePick] = useState(null);
 	const [hasHousePicked, setHasHousePicked] = useState(false);
 	const [hasScoreBeenUpdated, setHasScoreBeenUpdated] = useState(false);
@@ -31,7 +31,7 @@ export const Layout = () => {
 	const handleOnChoiceButtonClick = (index) => {
 		setHasHousePicked(false);
 		setHasScoreBeenUpdated(false);
-		setResultInfo('')
+		setResultInfo('');
 		const random = Math.floor(Math.random() * 5);
 		setHousePick(random);
 		setIsGameStarted(false);
@@ -44,36 +44,36 @@ export const Layout = () => {
 
 	return (
 		<>
-			{areRulesShown ? (
-				<div className={styles.layout}>
-					<Scoreboard score={score} />
-					<MainContent>
-						{isGameStarted ? (
-							<ChoicesContainer
-								icons={icons}
-								handleOnChoiceButtonClick={handleOnChoiceButtonClick}
-							/>
-						) : (
-							<FirstStep
-								housePick={housePick}
-								setScore={setScore}
-								index={selectedIndex}
-								icons={icons}
-								setIsGameStarted={setIsGameStarted}
-								hasHousePicked={hasHousePicked}
-								setHasHousePicked={setHasHousePicked}
-								setHasScoreBeenUpdated={setHasScoreBeenUpdated}
-								hasScoreBeenUpdated={hasScoreBeenUpdated}
-								resultInfo={resultInfo}
-								setResultInfo={setResultInfo}
-							/>
-						)}
-					</MainContent>
-					<RulesButton areRulesShown={handleRulesButtonClick} />
-				</div>
-			) : (
-				<RulesLayout areRulesShown={handleRulesButtonClick} />
-			)}
+			<div className={styles.layout}>
+				<Scoreboard score={score} />
+				<MainContent>
+					{isGameStarted ? (
+						<ChoicesContainer
+							icons={icons}
+							handleOnChoiceButtonClick={handleOnChoiceButtonClick}
+						/>
+					) : (
+						<FirstStep
+							housePick={housePick}
+							setScore={setScore}
+							index={selectedIndex}
+							icons={icons}
+							setIsGameStarted={setIsGameStarted}
+							hasHousePicked={hasHousePicked}
+							setHasHousePicked={setHasHousePicked}
+							setHasScoreBeenUpdated={setHasScoreBeenUpdated}
+							hasScoreBeenUpdated={hasScoreBeenUpdated}
+							resultInfo={resultInfo}
+							setResultInfo={setResultInfo}
+						/>
+					)}
+				</MainContent>
+				<RulesButton areRulesShown={handleRulesButtonClick} />
+			</div>
+			<RulesLayout
+				toggleRules={handleRulesButtonClick}
+				areRulesShown={areRulesShown}
+			/>
 		</>
 	);
 };

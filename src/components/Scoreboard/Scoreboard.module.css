@@ -4,11 +4,12 @@
 	align-items: center;
 	border: 3px solid var(--clr-white-200);
 	border-radius: 8px;
+	width: 100%;
 }
 .scoreboard img {
 	margin: var(--fz-24);
-	width: 50px;
-	height: 50px;
+	max-width: 50px;
+	max-height: 50px;
 }
 .scoreboard div {
 	display: flex;
@@ -31,4 +32,31 @@
 .scoreboard div span {
 	font-size: var(--fz-40);
 	color: var(--clr-gray-700);
+}
+
+@media (min-width: 768px) {
+	.scoreboard {
+		min-width: 700px;
+		max-width: 700px;
+		padding-inline: var(--fz-8);
+	}
+	.scoreboard img {
+		max-width: 108px;
+		max-height: 108px;
+	}
+	.scoreboard div {
+		margin: var(--fz-18);
+		padding-bottom: 1rem;
+		justify-content: center;
+		gap: var(--fz-12);
+		width: 150px;
+		height: 114px;
+	}
+	.scoreboard div p {
+		font-size: var(--fz-26);
+		letter-spacing: 2px;
+	}
+	.scoreboard div span {
+		font-size: var(--fz-58);
+	}
 }
