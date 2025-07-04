@@ -27,7 +27,8 @@
 	height: 130px;
 	border-radius: 50%;
 	padding: 1.5rem;
-	border: 15px solid var(--clr-orange-700);
+	border-width: 15px;
+	border-style: solid;
 	background-color: var(--clr-white-100);
 }
 .highlighted {
@@ -82,4 +83,25 @@
 }
 .border_4 {
 	border: 15px solid var(--clr-purple-500);
+}
+@media (min-width: 768px) {
+	.firstStep {
+		top: 55%;
+	}
+	.firstStep > div {
+		flex-direction: column-reverse;
+	}
+	.firstStep h2 {
+		margin-bottom: 4rem;
+		font-size: var(--fz-24);
+		letter-spacing: 3px;
+	}
+
+	.img {
+		width: 290px;
+		height: 300px;
+		padding: 3.5rem;
+		border-width: 35px;
+		box-shadow: inset 0 12px 0px rgba(161, 184, 255, 0.5);
+	}
 }

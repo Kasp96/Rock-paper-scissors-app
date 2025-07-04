@@ -29,10 +29,10 @@ export const Layout = () => {
   }, [isGameStarted]);
 
   const handleOnChoiceButtonClick = (index) => {
+    const random = Math.floor(Math.random() * 5);
     setHasHousePicked(false);
     setHasScoreBeenUpdated(false);
     setResultInfo("");
-    const random = Math.floor(Math.random() * 5);
     setHousePick(random);
     setIsGameStarted(false);
     setSelectedIndex(index);

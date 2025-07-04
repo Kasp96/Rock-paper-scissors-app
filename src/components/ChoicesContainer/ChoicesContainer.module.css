@@ -60,3 +60,11 @@
 		left: -3rem;
 	}
 }
+@media (min-width: 768px) {
+	.choicesContainer {
+		position: absolute;
+		top: 40%;
+		left: 37%;
+		transform: scale(1);
+	}
+}
