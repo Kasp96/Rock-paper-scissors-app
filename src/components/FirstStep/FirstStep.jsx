@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import styles from './FirstStep.module.css';
+import visuals from './Visuals.module.css';
 import { Result } from '../Result/Result';
 import { rules } from '../../utils/rules';
 
@@ -55,39 +56,42 @@ export const FirstStep = ({
 
 	return (
 		<>
-			<div className={styles.firstStep}>
+			<div
+				className={`${styles.firstStep} ${hasHousePicked ? styles.gap : ''}`}>
 				<div>
-					<div className={`${styles.highlighted}`}>
+					<div>
 						<img
-							className={`${styles.img} ${styles[`border_${index}`]} `}
+							className={`${styles.img} ${visuals[`border_${index}`]} `}
 							src={icons[index].img}
 							alt=''
 						/>
 					</div>
 					<h2>You picked</h2>
 				</div>
+				{hasHousePicked && (
+					<Result
+						result={resultInfo}
+						setIsGameStarted={setIsGameStarted}
+						hasHousePicked={hasHousePicked}
+						setHasHousePicked={setHasHousePicked}
+					/>
+				)}
 				<div>
 					{hasHousePicked ? (
 						<img
-							className={`${styles.img} ${styles[`border_${housePick}`]}`}
+							className={`${styles.img} ${visuals[`border_${housePick}`]}`}
 							src={icons[housePick].img}
 							alt=''
 						/>
 					) : (
-						<div className={styles.emptyChoice}></div>
+						<div className={styles.emptyChoiceBox}>
+							<div className={styles.emptyChoice}></div>
+						</div>
 					)}
 
 					<h2>The house picked</h2>
 				</div>
 			</div>
-			{hasHousePicked && (
-				<Result
-					result={resultInfo}
-					setIsGameStarted={setIsGameStarted}
-					hasHousePicked={hasHousePicked}
-					setHasHousePicked={setHasHousePicked}
-				/>
-			)}
 		</>
 	);
 };

@@ -31,34 +31,10 @@
 	border-style: solid;
 	background-color: var(--clr-white-100);
 }
-.highlighted {
-	position: relative;
-	outline: 20px solid hsl(0, 0%, 100%, 4%);
-	z-index: 0;
-	border-radius: 50%;
-}
-.highlighted::after,
-.highlighted::before {
-	position: absolute;
-	content: '';
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	border-radius: 50%;
-}
 
-.highlighted::after {
-	width: 225px;
-	height: 225px;
-	background: rgb(255, 255, 255, 3%);
+.emptyChoiceBox {
+	margin-top: 1.15rem;
 }
-
-.highlighted::before {
-	width: 275px;
-	height: 275px;
-	background: rgb(255, 255, 255, 2%);
-}
-
 .emptyChoice {
 	display: flex;
 	justify-content: space-between;
@@ -69,24 +45,14 @@
 	border: 15px solid transparent;
 	margin-bottom: auto;
 }
-.border_0 {
-	border: 15px solid var(--clr-blue-500);
-}
-.border_1 {
-	border: 15px solid var(--clr-red-500);
-}
-.border_2 {
-	border: 15px solid var(--clr-yellow-500);
-}
-.border_3 {
-	border: 15px solid var(--clr-cyan-300);
-}
-.border_4 {
-	border: 15px solid var(--clr-purple-500);
-}
+
 @media (min-width: 768px) {
 	.firstStep {
 		top: 55%;
+		gap: 7.5rem;
+	}
+	.gap {
+		gap: 25rem;
 	}
 	.firstStep > div {
 		flex-direction: column-reverse;
@@ -96,7 +62,10 @@
 		font-size: var(--fz-24);
 		letter-spacing: 3px;
 	}
-
+	.firstStep div:last-of-type {
+		display: flex;
+		justify-content: center;
+	}
 	.img {
 		width: 290px;
 		height: 300px;
@@ -104,4 +73,19 @@
 		border-width: 35px;
 		box-shadow: inset 0 12px 0px rgba(161, 184, 255, 0.5);
 	}
+	.emptyChoiceBox {
+		position: relative;
+		margin-top: 0;
+		width: 290px;
+		height: 300px;
+	}
+	.emptyChoice {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 230px;
+		height: 230px;
+	}
+	
 }
