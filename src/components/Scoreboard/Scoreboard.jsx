@@ -7,7 +7,7 @@ export const Scoreboard = ({ score }) => {
       <img src={LOGO} alt="game logo" />
       <div>
         <p>score</p>
-        <span>{score}</span>
+        <span>{score === "" ? 0 : score}</span>
       </div>
     </div>
   );

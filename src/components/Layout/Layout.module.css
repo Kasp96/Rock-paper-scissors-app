@@ -8,6 +8,7 @@
 	width: 100%;
 	min-height: 100vh;
 	padding: var(--fz-32);
+	overflow: hidden;
 }
 @media (min-width: 768px) {
 	.bgShadow {
