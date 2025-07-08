@@ -1,83 +1,63 @@
-import { useEffect, useState } from "react";
-import styles from "../Layout/Layout.module.css";
-import { icons } from "../../utils/iconsList";
-import { RulesButton } from "../RulesButton/RulesButton";
-import { Scoreboard } from "../Scoreboard/Scoreboard";
-import { MainContent } from "../MainContent/MainContent";
-import { ChoicesContainer } from "../ChoicesContainer/ChoicesContainer";
-import { FirstStep } from "../FirstStep/FirstStep";
-import { RulesLayout } from "../RulesLayout/RulesLayout";
+import { useEffect, useReducer } from 'react';
+import styles from '../Layout/Layout.module.css';
+import { icons } from '../../utils/iconsList';
+import { reducer } from '../../reducer/reducer';
+import { initialState } from '../../reducer/reducer';
+import { RulesButton } from '../RulesButton/RulesButton';
+import { Scoreboard } from '../Scoreboard/Scoreboard';
+import { MainContent } from '../MainContent/MainContent';
+import { ChoicesContainer } from '../ChoicesContainer/ChoicesContainer';
+import { FirstStep } from '../FirstStep/FirstStep';
+import { RulesLayout } from '../RulesLayout/RulesLayout';
 
 export const Layout = () => {
-  const [isGameStarted, setIsGameStarted] = useState(true);
-  const [selectedIndex, setSelectedIndex] = useState(null);
-  const [score, setScore] = useState(localStorage.score);
-  const [areRulesShown, setAreRulesShown] = useState(false);
-  const [housePick, setHousePick] = useState(null);
-  const [hasHousePicked, setHasHousePicked] = useState(false);
-  const [hasScoreBeenUpdated, setHasScoreBeenUpdated] = useState(false);
-  const [resultInfo, setResultInfo] = useState("");
-  const [winner, setWinner] = useState("");
-  localStorage.setItem("score", Number(localStorage.getItem("score")) || 0);
+	const [state, dispatch] = useReducer(reducer, initialState);
 
-  useEffect(() => {
-    if (!isGameStarted) {
-      const timer = setTimeout(() => {
-        setHasHousePicked(true);
-      }, 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [isGameStarted]);
+	useEffect(() => {
+		if (!state.isGameStarted) {
+			const timer = setTimeout(() => {
+				dispatch({ type: 'SET_HAS_HOUSE_PICKED' });
+			}, 2000);
+			return () => clearTimeout(timer);
+		}
+	}, [state.isGameStarted]);
 
-  const handleOnChoiceButtonClick = (index) => {
-    const random = Math.floor(Math.random() * 5);
-    setHasHousePicked(false);
-    setHasScoreBeenUpdated(false);
-    setResultInfo("");
-    setHousePick(random);
-    setIsGameStarted(false);
-    setSelectedIndex(index);
-  };
+	const handleOnChoiceButtonClick = (index) => {
+		const random = Math.floor(Math.random() * 5);
+		dispatch({
+			type: 'START_GAME',
+			payload: {
+				index: index,
+				housePick: random,
+			},
+		});
+	};
 
-  const handleRulesButtonClick = () => {
-    setAreRulesShown((prevRules) => !prevRules);
-  };
+	const handleRulesButtonClick = () => {
+		dispatch({ type: 'TOGGLE_RULES' });
+	};
 
-  return (
-    <>
-      <div className={areRulesShown ? `${styles.bgShadow}` : ""} />
-      <div className={styles.layout}>
-        <Scoreboard score={score} />
-        <MainContent>
-          {isGameStarted ? (
-            <ChoicesContainer
-              icons={icons}
-              handleOnChoiceButtonClick={handleOnChoiceButtonClick}
-            />
-          ) : (
-            <FirstStep
-              housePick={housePick}
-              setScore={setScore}
-              index={selectedIndex}
-              icons={icons}
-              setIsGameStarted={setIsGameStarted}
-              hasHousePicked={hasHousePicked}
-              setHasHousePicked={setHasHousePicked}
-              setHasScoreBeenUpdated={setHasScoreBeenUpdated}
-              hasScoreBeenUpdated={hasScoreBeenUpdated}
-              resultInfo={resultInfo}
-              setResultInfo={setResultInfo}
-			  winner={winner}
-			  setWinner={setWinner}
-            />
-          )}
-        </MainContent>
-        <RulesButton areRulesShown={handleRulesButtonClick} />
-      </div>
-      <RulesLayout
-        toggleRules={handleRulesButtonClick}
-        areRulesShown={areRulesShown}
-      />
-    </>
-  );
+	return (
+		<>
+			<div className={state.areRulesShown ? `${styles.bgShadow}` : ''} />
+			<div className={styles.layout}>
+				<Scoreboard score={state.score} />
+				<MainContent>
+					{state.isGameStarted ? (
+						<ChoicesContainer
+							icons={icons}
+							handleOnChoiceButtonClick={handleOnChoiceButtonClick}
+						/>
+					) : (
+						<FirstStep state={state} dispatch={dispatch} icons={icons} />
+					)}
+				</MainContent>
+				<RulesButton areRulesShown={handleRulesButtonClick} />
+			</div>
+			<RulesLayout
+				toggleRules={handleRulesButtonClick}
+				areRulesShown={state.areRulesShown}
+			/>
+		</>
+	);
 };
